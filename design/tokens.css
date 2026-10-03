@@ -1,0 +1,56 @@
+/*
+  Alto design tokens.
+  Neutrals: Radix Colors "Sand" (light + dark), unchanged.
+  Tints of the primary: Radix Colors "Tomato", unchanged.
+  The only colour that is ours: --thread (#cf3f31), the red thread.
+  Variable names follow shadcn/ui, so its components work without edits.
+*/
+:root{
+  /* Radix Sand, light */
+  --sand-1:#fdfdfc; --sand-2:#f9f9f8; --sand-3:#f1f0ef; --sand-4:#e9e8e6; --sand-5:#e2e1de; --sand-6:#dad9d6;
+  --sand-7:#cfceca; --sand-8:#bcbbb5; --sand-9:#8d8d86; --sand-10:#82827c; --sand-11:#63635e; --sand-12:#21201c;
+  /* Radix Tomato, light (tints around the thread) */
+  --tomato-3:#feebe7; --tomato-4:#ffdcd3; --tomato-6:#fdbdaf; --tomato-8:#ec8e7b;
+
+  /* Brand */
+  --thread:#cf3f31;            /* the red thread: you and the agent are connected */
+  --thread-soft:var(--tomato-4);
+  --water:#e8efee;             /* below the surface, where the agent works */
+  --wave:#a9bcc0;
+
+  /* shadcn/ui contract */
+  --background:var(--sand-3);
+  --foreground:var(--sand-12);
+  --card:var(--sand-1);           --card-foreground:var(--sand-12);
+  --popover:var(--sand-1);        --popover-foreground:var(--sand-12);
+  --primary:var(--thread);        --primary-foreground:#ffffff;
+  --secondary:var(--sand-4);      --secondary-foreground:var(--sand-12);
+  --muted:var(--sand-4);          --muted-foreground:var(--sand-11);
+  --accent:var(--sand-5);         --accent-foreground:var(--sand-12);
+  --destructive:#ce2c31;          --destructive-foreground:#ffffff;  /* Radix Red 10: cooler than the thread */
+  --border:var(--sand-6);
+  --input:var(--sand-6);
+  --ring:var(--tomato-8);
+  --radius:0.5rem;
+
+  /* Type */
+  --font-sans:"Jost","Futura","Avenir Next",system-ui,sans-serif;          /* Bauhaus geometry */
+  --font-serif:"EB Garamond","Garamond","Iowan Old Style",Georgia,serif;    /* Renaissance italic, for notes */
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;                 /* traces, numbers, code */
+}
+
+.dark{
+  /* Radix Sand, dark */
+  --sand-1:#111110; --sand-2:#191918; --sand-3:#222221; --sand-4:#2a2a28; --sand-5:#31312e; --sand-6:#3b3a37;
+  --sand-7:#494844; --sand-8:#62605b; --sand-9:#6f6d66; --sand-10:#7c7b74; --sand-11:#b5b3ad; --sand-12:#eeeeec;
+  /* Radix Tomato, dark */
+  --tomato-3:#391714; --tomato-4:#4e1511; --tomato-6:#6e2920; --tomato-8:#b54a35;
+
+  --thread:#ef6a59;            /* lifted so it reads on dark sand */
+  --water:#1b2224; --wave:#4b5d61;
+
+  --background:var(--sand-2);
+  --card:var(--sand-3); --popover:var(--sand-3);
+  --primary-foreground:var(--sand-1);
+  --destructive:#ff6369;       /* Radix Red 11, dark */
+}
