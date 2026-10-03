@@ -7,55 +7,99 @@
 <meta name="description" content="A browser harness that keeps you in the loop.">
 <meta property="og:title" content="Alto">
 <meta property="og:description" content="A browser harness that keeps you in the loop.">
-<meta property="og:image" content="assets/banner.svg">
 <link rel="icon" type="image/png" href="assets/avatar.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500,100&family=Instrument+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=IBM+Plex+Mono:wght@400&display=swap">
 <style>
-/* Layout: one calm column, set left of center. Otter, name, one line, three open questions, then a quiet footer pinned to the bottom. */
+/*
+  Layout: one portrait sheet, like the Alto's upright screen, on a two-column Bauhaus grid.
+  The left column is the thread: it leaves the otter's paw, knots through each numbered
+  statement (Engelbart's NLS numbering), and ends at a cursor, the agent at work.
+*/
 :root{
-  --ground:#efefed; --ink:#121414; --muted:#6a6e6e; --faint:#c9cccb; --thread:#d24a3c;
-  --display:"Fraunces", "Iowan Old Style", Georgia, serif;
-  --body:"Instrument Sans", "Helvetica Neue", system-ui, sans-serif;
+  --desk:#e7e8e3;      /* the table the sheet sits on */
+  --sheet:#fbfbf8;     /* the sheet itself */
+  --ink:#141615;
+  --muted:#686d6a;
+  --rule:#d9dbd5;
+  --thread:#cf3f31;    /* the only colour on the page */
+  --geo:"Jost","Futura","Avenir Next",system-ui,sans-serif;          /* Bauhaus */
+  --hand:"EB Garamond","Garamond","Iowan Old Style",Georgia,serif;    /* Renaissance italic */
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;                /* the machine */
+  --gutter:112px;      /* width of the thread column */
+  --paw:100px;         /* x of the otter's paw, where the thread starts */
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0; background:var(--ground); color:var(--ink); font-family:var(--body); font-size:18px; line-height:1.5; -webkit-font-smoothing:antialiased;
-  display:flex; flex-direction:column}
-.page{flex:1; width:100%; max-width:1060px; margin:0 auto; padding-inline:24px; display:flex; flex-direction:column}
-main{flex:1; display:flex; flex-direction:column; justify-content:center; padding-block:96px 72px; max-width:860px}
-.mark{width:84px; height:auto; margin-left:-6px; margin-bottom:22px}
-h1{font-family:var(--display); font-weight:500; font-variation-settings:"SOFT" 100; font-size:clamp(56px,9vw,84px); line-height:1; letter-spacing:-.025em; margin:0}
-.line{font-size:clamp(19px,2.3vw,23px); color:var(--muted); margin:22px 0 0; max-width:36ch; line-height:1.4; text-wrap:balance}
-.questions{list-style:none; margin:88px 0 0; padding:0; display:grid; gap:14px}
-.questions li{display:flex; gap:12px; align-items:baseline}
-.name{flex:none; width:5.6em; color:var(--ink); font-weight:500}
-.q{color:var(--muted); margin:0; min-width:0; text-wrap:pretty}
-footer{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-block:28px; font-size:15px; color:var(--muted)}
-footer a{color:var(--muted); text-decoration:none}
-footer a:hover, footer a:focus-visible{color:var(--ink)}
-a:focus-visible{outline:2px solid var(--thread); outline-offset:3px; border-radius:2px}
-@media (max-width:560px){
-  main{padding-block:64px 48px}
-  .questions{margin-top:56px; gap:18px}
-  .questions li{flex-direction:column; gap:2px}
+html{background:var(--desk)}
+body{margin:0; background:var(--desk); color:var(--ink); font-family:var(--geo); font-size:18px; line-height:1.5; -webkit-font-smoothing:antialiased}
+.desk{min-height:100vh; display:flex; flex-direction:column; align-items:center; padding-inline:16px; padding-block:72px 32px; gap:28px}
+
+/* the sheet, with a Smalltalk-style title tab */
+.sheet{position:relative; width:100%; max-width:720px; background:var(--sheet); border:1px solid var(--rule);
+  padding:56px 48px 64px 32px; display:grid; grid-template-columns:var(--gutter) minmax(0,1fr); column-gap:20px}
+.tab{position:absolute; left:-1px; top:-30px; height:30px; padding:0 14px; display:flex; align-items:center;
+  background:var(--ink); color:var(--sheet); font-family:var(--mono); font-size:12px; letter-spacing:.04em}
+
+/* the thread: one red line in the left column, from paw to cursor */
+.thread{position:absolute; left:calc(32px + var(--paw)); top:calc(56px + 60px); bottom:118px; width:2px; background:var(--thread); transform:translateX(-1px)}
+.cursor{position:absolute; left:calc(32px + var(--paw) - 1px); bottom:88px; width:18px; height:28px}
+
+.otter{grid-column:1; width:var(--paw); height:auto; align-self:start}
+.head{grid-column:2; padding-top:6px}
+h1{font-family:var(--geo); font-weight:600; font-size:clamp(52px,8vw,72px); line-height:.95; letter-spacing:-.02em; margin:0}
+.line{margin:18px 0 0; font-size:20px; color:var(--muted); max-width:36ch; text-wrap:balance}
+
+/* numbered statements, each tied to the thread with a knot */
+.trail{grid-column:1 / -1; list-style:none; margin:72px 0 0; padding:0; display:grid; gap:44px}
+.trail li{position:relative; display:grid; grid-template-columns:var(--gutter) minmax(0,1fr); column-gap:20px}
+.trail li::before{content:""; position:absolute; left:calc(var(--paw) - 6px); top:9px; width:12px; height:12px; border-radius:50%;
+  background:var(--sheet); border:2px solid var(--thread)}
+.num{grid-column:1; justify-self:end; padding-right:26px; font-family:var(--mono); font-size:13px; color:var(--muted); padding-top:4px}
+.body{grid-column:2; min-width:0}
+.name{font-family:var(--geo); font-weight:500; font-size:13px; letter-spacing:.14em; text-transform:uppercase; margin:0 0 6px}
+.q{font-family:var(--hand); font-style:italic; font-size:clamp(23px,3vw,27px); line-height:1.3; margin:0; text-wrap:pretty}
+
+.end{grid-column:2; margin:56px 0 0; font-family:var(--mono); font-size:13px; color:var(--muted)}
+
+footer{width:100%; max-width:720px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:14px; color:var(--muted)}
+footer a{color:var(--ink); text-decoration:none; border-bottom:1.5px solid var(--thread)}
+footer a:hover, footer a:focus-visible{color:var(--thread)}
+a:focus-visible{outline:2px solid var(--thread); outline-offset:3px}
+
+@media (max-width:600px){
+  :root{--gutter:64px; --paw:60px}
+  .sheet{padding:40px 22px 56px 16px; column-gap:14px}
+  .thread{left:calc(16px + var(--paw)); top:calc(40px + 36px)}
+  .cursor{left:calc(16px + var(--paw) - 1px)}
+  .trail li{column-gap:14px}
+  .line{font-size:18px}
+  .num{display:none}
 }
 </style>
 </head>
 <body>
-<div class="page">
-  <main>
-    <img class="mark" src="assets/otter.svg" alt="Clew the otter, holding a ball of yarn">
-    <h1>Alto</h1>
-    <p class="line">A browser harness that keeps you in the loop.</p>
+<div class="desk">
+  <main class="sheet">
+    <span class="tab">alto</span>
+    <span class="thread" aria-hidden="true"></span>
 
-    <ul class="questions">
-      <li><span class="name">Harness</span><p class="q">How can an agent browse for hours and still be trusted?</p></li>
-      <li><span class="name">Interface</span><p class="q">How do you talk with an agent that works for hours, and understand what it did?</p></li>
-      <li><span class="name">Eval</span><p class="q">How do you measure a good experience, not just a right answer?</p></li>
-    </ul>
+    <img class="otter" src="assets/otter.svg" alt="Clew the otter, floating with a ball of yarn and holding one end of the thread">
+    <div class="head">
+      <h1>Alto</h1>
+      <p class="line">A browser harness that keeps you in the loop.</p>
+    </div>
+
+    <ol class="trail">
+      <li><span class="num">1</span><div class="body"><p class="name">Harness</p><p class="q">How can an agent browse for hours and still be trusted?</p></div></li>
+      <li><span class="num">2</span><div class="body"><p class="name">Interface</p><p class="q">How do you talk with an agent that works for hours, and understand what it did?</p></div></li>
+      <li><span class="num">3</span><div class="body"><p class="name">Eval</p><p class="q">How do you measure a good experience, not just a right answer?</p></div></li>
+    </ol>
+
+    <p class="end">The agent goes into the maze. You hold the thread.</p>
+
+    <svg class="cursor" viewBox="0 0 18 28" aria-hidden="true"><path d="M1 1 L1 22 L6.5 17 L10.5 26 L14 24.5 L10 16 L17 16 Z" fill="#141615" stroke="#fbfbf8" stroke-width="1.6" stroke-linejoin="round"/></svg>
   </main>
 
   <footer>
