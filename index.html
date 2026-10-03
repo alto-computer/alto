@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alto</title>
+<meta name="description" content="A browser harness that keeps you in the loop.">
+<meta property="og:title" content="Alto">
+<meta property="og:description" content="A browser harness that keeps you in the loop.">
+<link rel="icon" type="image/png" href="assets/avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* One quiet page: the water scene on top, the name, then three open questions. Light only, on purpose: it matches the banner. */
+:root{
+  --sky:#f8faf9; --ink:#15181a; --muted:#5f686c; --line:#dbe4e5; --thread:#d24a3c;
+  --display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--sky)}
+body{margin:0; background:var(--sky); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased}
+.scene{display:block; width:100%; max-width:1500px; height:auto; margin:0 auto}
+main{max-width:720px; margin:0 auto; padding-inline:24px; padding-block:40px 96px; display:grid; gap:64px}
+.intro{display:grid; gap:10px}
+h1{font-family:var(--display); font-weight:700; font-size:clamp(48px,9vw,76px); line-height:1; letter-spacing:-.035em; margin:0}
+.line{font-size:clamp(18px,2.4vw,21px); color:var(--muted); margin:0}
+.questions{list-style:none; margin:0; padding:0; display:grid}
+.questions li{display:grid; grid-template-columns:110px 1fr; gap:24px; padding-block:22px; border-top:1px solid var(--line)}
+.questions li:last-child{border-bottom:1px solid var(--line)}
+.label{font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); padding-top:6px}
+.q{font-family:var(--display); font-weight:700; font-size:clamp(20px,2.8vw,25px); line-height:1.25; letter-spacing:-.015em; margin:0; text-wrap:balance}
+footer{display:flex; gap:20px; flex-wrap:wrap; font-size:15px; color:var(--muted)}
+footer a{color:var(--ink); text-decoration:none; border-bottom:1.5px solid var(--thread); padding-bottom:1px}
+footer a:hover,footer a:focus-visible{color:var(--thread)}
+a:focus-visible{outline:2px solid var(--thread); outline-offset:3px}
+@media (max-width:520px){
+  .questions li{grid-template-columns:1fr; gap:6px}
+  .label{padding-top:0}
+}
+</style>
+</head>
+<body>
+<img class="scene" src="assets/banner.svg" width="1500" height="500" alt="An otter floats on calm water holding a red thread. Below the surface the thread winds through a maze to a cursor.">
+<main>
+  <section class="intro">
+    <h1>Alto</h1>
+    <p class="line">A browser harness that keeps you in the loop.</p>
+  </section>
+
+  <ol class="questions">
+    <li><span class="label">Harness</span><p class="q">How can an agent browse for hours and still be trusted?</p></li>
+    <li><span class="label">Interface</span><p class="q">How do you talk with an agent that works for hours, and understand what it did?</p></li>
+    <li><span class="label">Eval</span><p class="q">How do you measure a good experience, not just a right answer?</p></li>
+  </ol>
+
+  <footer>
+    <a href="https://x.com/altodotcomputer">X @altodotcomputer</a>
+  </footer>
+</main>
+</body>
+</html>
