@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alto · Notes</title><meta name="description" content="A browser harness that keeps you in the loop.">
+<link rel="icon" type="image/png" href="assets/avatar.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=EB+Garamond:ital,wght@1,400&display=swap"><style>
+/* Layout: nav top right, the otter scene centred in the space left over, footer on the baseline. Everything fits one screen. */
+:root{--ground:#efefed; --ink:#161817; --muted:#6c706d; --pill:#e2e2df; --thread:#cf3f31; --thread-soft:#f3c4bd;
+  --geo:"Jost","Futura","Avenir Next",system-ui,sans-serif; --ren:"EB Garamond",Garamond,Georgia,serif; color-scheme:light}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--ground);color:var(--ink);font-family:var(--geo);-webkit-font-smoothing:antialiased}
+.frame{height:100%;max-width:1120px;margin:0 auto;padding:22px 32px 26px;display:flex;flex-direction:column}
+.geo{font-family:var(--geo)} .ren{font-family:var(--ren);font-style:italic}
+nav{display:flex;justify-content:flex-end;gap:6px}
+nav a{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:9px;font-size:15px;color:var(--muted);text-decoration:none;transition:background .15s,color .15s}
+nav a svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+nav a:hover{color:var(--ink);background:var(--pill)}
+nav a.on{color:var(--ink);background:var(--pill)}
+nav a.on svg path:last-child{fill:var(--thread-soft)}
+nav a.on svg{stroke:var(--ink)}
+main{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.scene{width:100%;height:100%;max-height:680px;display:block}
+footer{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px;color:var(--muted)}
+footer a{display:inline-flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)} footer svg{width:13px;height:13px;fill:currentColor}
+a:focus-visible{outline:2px solid var(--thread);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.empty{text-align:center;display:grid;gap:10px;justify-items:center} .empty img{width:120px;height:auto;margin-bottom:6px} .empty h1{font-weight:500;font-size:34px;margin:0;letter-spacing:-.01em} .empty p{margin:0;color:var(--muted);font-size:17px}</style></head><body><div class="frame">
+<nav aria-label="Main"><a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Home</a><a href="blog.html" class="on" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>Blog</a></nav><main><div class="empty"><img src="assets/otter.svg" alt=""><h1>Notes</h1><p>Measurements and findings from building Alto. The first note is on its way.</p></div></main>
+<footer><span>© 2026 Alto Computer</span><a href="https://x.com/altodotcomputer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>@altodotcomputer</a></footer>
+</div></body></html>
