@@ -1,56 +1,62 @@
 /*
-  Alto design tokens.
-  Neutrals: Radix Colors "Sand" (light + dark), unchanged.
-  Tints of the primary: Radix Colors "Tomato", unchanged.
-  The only colour that is ours: --thread (#cf3f31), the red thread.
+  Alto design tokens, v2.
+  Structure borrowed from Airbnb's DLS: a quiet near-white canvas, one ink colour,
+  hairline borders, soft radii, and a single saturated colour used in very few places.
+  Airbnb's single colour is Rausch. Ours is the thread.
   Variable names follow shadcn/ui, so its components work without edits.
 */
 :root{
-  /* Radix Sand, light */
-  --sand-1:#fdfdfc; --sand-2:#f9f9f8; --sand-3:#f1f0ef; --sand-4:#e9e8e6; --sand-5:#e2e1de; --sand-6:#dad9d6;
-  --sand-7:#cfceca; --sand-8:#bcbbb5; --sand-9:#8d8d86; --sand-10:#82827c; --sand-11:#63635e; --sand-12:#21201c;
-  /* Radix Tomato, light (tints around the thread) */
-  --tomato-3:#feebe7; --tomato-4:#ffdcd3; --tomato-6:#fdbdaf; --tomato-8:#ec8e7b;
+  /* Neutrals: Airbnb's steps, warmed slightly toward sand */
+  --canvas:#fcfcfb;        /* page */
+  --surface:#f7f7f5;       /* quiet panels, inputs at rest */
+  --surface-strong:#efefed;/* pills, hover, selected rows */
+  --hairline:#dddcd8;      /* borders and dividers */
+  --ink:#222222;           /* text */
+  --ink-2:#6a6a6a;         /* secondary text */
+  --ink-3:#929292;         /* placeholders, disabled */
 
-  /* Brand */
-  --thread:#cf3f31;            /* the red thread: you and the agent are connected */
-  --thread-soft:var(--tomato-4);
-  --water:#e8efee;             /* below the surface, where the agent works */
-  --wave:#a9bcc0;
+  /* The one colour */
+  --thread:#cf3f31;        /* primary action, the thread, the live agent */
+  --thread-hover:#b8352a;
+  --thread-tint:#fdece9;   /* live badge, active icon fill */
+
+  /* Illustration only */
+  --water:#e8efee; --wave:#a9bcc0;
+
+  /* Status, kept apart from the thread */
+  --error:#a3231d; --success:#2f7d5b;
 
   /* shadcn/ui contract */
-  --background:var(--sand-3);
-  --foreground:var(--sand-12);
-  --card:var(--sand-1);           --card-foreground:var(--sand-12);
-  --popover:var(--sand-1);        --popover-foreground:var(--sand-12);
+  --background:var(--canvas);     --foreground:var(--ink);
+  --card:#ffffff;                 --card-foreground:var(--ink);
+  --popover:#ffffff;              --popover-foreground:var(--ink);
   --primary:var(--thread);        --primary-foreground:#ffffff;
-  --secondary:var(--sand-4);      --secondary-foreground:var(--sand-12);
-  --muted:var(--sand-4);          --muted-foreground:var(--sand-11);
-  --accent:var(--sand-5);         --accent-foreground:var(--sand-12);
-  --destructive:#a3231d;          --destructive-foreground:#ffffff;  /* darker and duller than the thread, like Airbnb keeps errors apart from Rausch */
-  --border:var(--sand-6);
-  --input:var(--sand-6);
-  --ring:var(--tomato-8);
-  --radius:0.5rem;
+  --secondary:var(--surface-strong); --secondary-foreground:var(--ink);
+  --muted:var(--surface);         --muted-foreground:var(--ink-2);
+  --accent:var(--surface-strong); --accent-foreground:var(--ink);
+  --destructive:var(--error);     --destructive-foreground:#ffffff;
+  --border:var(--hairline);       --input:var(--hairline);
+  --ring:var(--ink);              /* focus is ink, so red stays rare */
 
-  /* Type */
-  --font-sans:"Jost","Futura","Avenir Next",system-ui,sans-serif;          /* Bauhaus geometry */
-  --font-serif:"EB Garamond","Garamond","Iowan Old Style",Georgia,serif;    /* Renaissance italic, for notes */
-  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;                 /* traces, numbers, code */
+  /* Shape and depth (Airbnb: 8 buttons, 14 cards, pill search) */
+  --radius:0.5rem; --radius-card:14px; --radius-pill:999px;
+  --shadow-float:0 6px 16px rgba(0,0,0,.12);   /* only for things that float */
+
+  /* Space: 8pt grid, 4 for tight spots */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-12:48px; --space-16:64px;
+
+  /* Type: one family, like Airbnb Cereal. Mono only for traces. */
+  --font-sans:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --text-xs:12px; --text-sm:14px; --text-base:16px; --text-lg:18px; --text-xl:22px; --text-2xl:28px; --text-display:64px;
 }
 
 .dark{
-  /* Radix Sand, dark */
-  --sand-1:#111110; --sand-2:#191918; --sand-3:#222221; --sand-4:#2a2a28; --sand-5:#31312e; --sand-6:#3b3a37;
-  --sand-7:#494844; --sand-8:#62605b; --sand-9:#6f6d66; --sand-10:#7c7b74; --sand-11:#b5b3ad; --sand-12:#eeeeec;
-  /* Radix Tomato, dark */
-  --tomato-3:#391714; --tomato-4:#4e1511; --tomato-6:#6e2920; --tomato-8:#b54a35;
-
-  --thread:#ef6a59;            /* lifted so it reads on dark sand */
+  --canvas:#161616; --surface:#1e1e1d; --surface-strong:#2a2a28; --hairline:#3a3937;
+  --ink:#f2f2f0; --ink-2:#a8a8a3; --ink-3:#77776f;
+  --thread:#ef6a59; --thread-hover:#f5826f; --thread-tint:#3a1a16;
   --water:#1b2224; --wave:#4b5d61;
-
-  --background:var(--sand-2);
-  --card:var(--sand-3); --popover:var(--sand-3);
-  --primary-foreground:var(--sand-1);
-  --destructive:#ff8a80;       /* lighter and softer than the dark thread */
+  --error:#ff8a80; --success:#6cc59a;
+  --card:#1e1e1d; --popover:#1e1e1d; --primary-foreground:#161616;
+  --shadow-float:0 6px 16px rgba(0,0,0,.5);
 }
