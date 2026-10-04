@@ -27,7 +27,7 @@
   --secondary:var(--sand-4);      --secondary-foreground:var(--sand-12);
   --muted:var(--sand-4);          --muted-foreground:var(--sand-11);
   --accent:var(--sand-5);         --accent-foreground:var(--sand-12);
-  --destructive:#ce2c31;          --destructive-foreground:#ffffff;  /* Radix Red 10: cooler than the thread */
+  --destructive:#a3231d;          --destructive-foreground:#ffffff;  /* darker and duller than the thread, like Airbnb keeps errors apart from Rausch */
   --border:var(--sand-6);
   --input:var(--sand-6);
   --ring:var(--tomato-8);
@@ -52,5 +52,5 @@
   --background:var(--sand-2);
   --card:var(--sand-3); --popover:var(--sand-3);
   --primary-foreground:var(--sand-1);
-  --destructive:#ff6369;       /* Radix Red 11, dark */
+  --destructive:#ff8a80;       /* lighter and softer than the dark thread */
 }

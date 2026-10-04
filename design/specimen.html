@@ -8,19 +8,19 @@
   --tomato-3:#feebe7; --tomato-4:#ffdcd3; --tomato-6:#fdbdaf; --tomato-8:#ec8e7b;
   --thread:#cf3f31; --thread-soft:var(--tomato-4); --water:#e8efee; --wave:#a9bcc0;
   --bg:var(--sand-3); --card:var(--sand-1); --fg:var(--sand-12); --muted:var(--sand-11); --border:var(--sand-6);
-  --on-primary:#ffffff; --danger:#ce2c31;
+  --on-primary:#ffffff; --danger:#a3231d;
   --sans:"Jost","Futura","Avenir Next",system-ui,sans-serif; --serif:"EB Garamond",Garamond,Georgia,serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --sand-1:#111110; --sand-2:#191918; --sand-3:#222221; --sand-4:#2a2a28; --sand-5:#31312e; --sand-6:#3b3a37;
   --sand-7:#494844; --sand-8:#62605b; --sand-9:#6f6d66; --sand-10:#7c7b74; --sand-11:#b5b3ad; --sand-12:#eeeeec;
   --tomato-3:#391714; --tomato-4:#4e1511; --tomato-6:#6e2920; --tomato-8:#b54a35;
-  --thread:#ef6a59; --water:#1b2224; --wave:#4b5d61; --bg:var(--sand-2); --card:var(--sand-3); --on-primary:var(--sand-1); --danger:#ff6369; color-scheme:dark}}
+  --thread:#ef6a59; --water:#1b2224; --wave:#4b5d61; --bg:var(--sand-2); --card:var(--sand-3); --on-primary:var(--sand-1); --danger:#ff8a80; color-scheme:dark}}
 :root[data-theme="dark"]{
   --sand-1:#111110; --sand-2:#191918; --sand-3:#222221; --sand-4:#2a2a28; --sand-5:#31312e; --sand-6:#3b3a37;
   --sand-7:#494844; --sand-8:#62605b; --sand-9:#6f6d66; --sand-10:#7c7b74; --sand-11:#b5b3ad; --sand-12:#eeeeec;
   --tomato-3:#391714; --tomato-4:#4e1511; --tomato-6:#6e2920; --tomato-8:#b54a35;
-  --thread:#ef6a59; --water:#1b2224; --wave:#4b5d61; --bg:var(--sand-2); --card:var(--sand-3); --on-primary:var(--sand-1); --danger:#ff6369; color-scheme:dark}
+  --thread:#ef6a59; --water:#1b2224; --wave:#4b5d61; --bg:var(--sand-2); --card:var(--sand-3); --on-primary:var(--sand-1); --danger:#ff8a80; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg); color:var(--fg); font-family:var(--sans); font-size:16px; line-height:1.55; margin:0}
@@ -173,7 +173,7 @@ pre{margin:0; background:var(--card); border:1px solid var(--border); border-rad
 
     <div class="rules">
       <div class="rule"><h4 class="yes"><svg class="ico"><use href="#i-check"/></svg>Red is for</h4><ul><li>the thread and its knots</li><li>one primary button per view</li><li>active state fills and live status</li><li>focus rings</li></ul></div>
-      <div class="rule"><h4 class="no"><svg class="ico"><use href="#i-alert"/></svg>Red is not for</h4><ul><li>decoration or headings</li><li>errors: those use Radix Red, which is cooler, and always come with an icon and text</li><li>more than one loud thing per screen</li></ul></div>
+      <div class="rule"><h4 class="no"><svg class="ico"><use href="#i-alert"/></svg>Red is not for</h4><ul><li>decoration or headings</li><li>errors: those use a darker, duller red (#a3231d) and always come with an icon and text, the way Airbnb keeps errors apart from its brand red</li><li>more than one loud thing per screen</li></ul></div>
     </div>
   </section>
 
