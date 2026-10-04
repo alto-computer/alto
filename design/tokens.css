@@ -7,7 +7,10 @@
 */
 
 :root{
-  /* Neutrals (Airbnb) */
+  /* Brand ground: the warm grey of the site and banners. Rausch sits on it. */
+  --ground:#efefed;
+
+  /* Neutrals (Airbnb), for product UI */
   --canvas:#ffffff;
   --surface:#f7f7f7;
   --surface-strong:#f2f2f2;
@@ -79,7 +82,7 @@
   --color-thread:var(--thread); --color-thread-deep:var(--thread-deep); --color-thread-tint:var(--thread-tint);
   --color-ink:var(--ink); --color-ink-2:var(--ink-2); --color-ink-3:var(--ink-3);
   --color-surface:var(--surface); --color-surface-strong:var(--surface-strong); --color-hairline:var(--hairline);
-  --color-water:var(--water); --color-wave:var(--wave);
+  --color-ground:var(--ground); --color-water:var(--water); --color-wave:var(--wave);
   --color-success:var(--success);
 
   --radius-sm:calc(var(--radius) - 4px); --radius-md:calc(var(--radius) - 2px);
