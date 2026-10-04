@@ -1,62 +1,93 @@
 /*
-  Alto design tokens, v2.
-  Structure borrowed from Airbnb's DLS: a quiet near-white canvas, one ink colour,
-  hairline borders, soft radii, and a single saturated colour used in very few places.
-  Airbnb's single colour is Rausch. Ours is the thread.
-  Variable names follow shadcn/ui, so its components work without edits.
+  Alto design tokens, v3.
+  Airbnb's DLS palette: near-white canvas, #222 ink, hairline borders, and Rausch as the
+  one colour, used in very few places. For Alto, Rausch is the thread.
+  Works as-is with shadcn/ui on Tailwind v4: paste into app/globals.css after
+  `@import "tailwindcss";` (it replaces the theme block shadcn generates).
 */
+
 :root{
-  /* Neutrals: Airbnb's steps, warmed slightly toward sand */
-  --canvas:#fcfcfb;        /* page */
-  --surface:#f7f7f5;       /* quiet panels, inputs at rest */
-  --surface-strong:#efefed;/* pills, hover, selected rows */
-  --hairline:#dddcd8;      /* borders and dividers */
-  --ink:#222222;           /* text */
-  --ink-2:#6a6a6a;         /* secondary text */
-  --ink-3:#929292;         /* placeholders, disabled */
+  /* Neutrals (Airbnb) */
+  --canvas:#ffffff;
+  --surface:#f7f7f7;
+  --surface-strong:#f2f2f2;
+  --hairline:#dddddd;
+  --ink:#222222;
+  --ink-2:#6a6a6a;
+  --ink-3:#929292;
 
   /* The one colour */
-  --thread:#cf3f31;        /* primary action, the thread, the live agent */
-  --thread-hover:#b8352a;
-  --thread-tint:#fdece9;   /* live badge, active icon fill */
+  --thread:#ff385c;        /* Rausch: the thread, knots, live status */
+  --thread-deep:#e31c5f;   /* button fill: white text passes AA (about 4.6:1) */
+  --thread-deeper:#d70466; /* button hover and pressed */
+  --thread-tint:#fff0f3;   /* live badge, active icon fill */
 
   /* Illustration only */
   --water:#e8efee; --wave:#a9bcc0;
 
-  /* Status, kept apart from the thread */
-  --error:#a3231d; --success:#2f7d5b;
+  /* Status (Airbnb), kept apart from the thread */
+  --error:#c13515; --success:#008a05;
 
-  /* shadcn/ui contract */
-  --background:var(--canvas);     --foreground:var(--ink);
-  --card:#ffffff;                 --card-foreground:var(--ink);
-  --popover:#ffffff;              --popover-foreground:var(--ink);
-  --primary:var(--thread);        --primary-foreground:#ffffff;
-  --secondary:var(--surface-strong); --secondary-foreground:var(--ink);
-  --muted:var(--surface);         --muted-foreground:var(--ink-2);
-  --accent:var(--surface-strong); --accent-foreground:var(--ink);
-  --destructive:var(--error);     --destructive-foreground:#ffffff;
-  --border:var(--hairline);       --input:var(--hairline);
-  --ring:var(--ink);              /* focus is ink, so red stays rare */
+  /* shadcn/ui */
+  --background:var(--canvas);         --foreground:var(--ink);
+  --card:#ffffff;                     --card-foreground:var(--ink);
+  --popover:#ffffff;                  --popover-foreground:var(--ink);
+  --primary:var(--thread-deep);       --primary-foreground:#ffffff;
+  --secondary:var(--surface-strong);  --secondary-foreground:var(--ink);
+  --muted:var(--surface);             --muted-foreground:var(--ink-2);
+  --accent:var(--surface-strong);     --accent-foreground:var(--ink);
+  --destructive:var(--error);
+  --border:var(--hairline);           --input:var(--hairline);
+  --ring:var(--ink);                  /* focus is ink, so red stays rare */
+  --chart-1:var(--thread); --chart-2:#222222; --chart-3:#6a6a6a; --chart-4:#a9bcc0; --chart-5:#dddddd;
+  --sidebar:var(--surface);           --sidebar-foreground:var(--ink);
+  --sidebar-primary:var(--thread-deep); --sidebar-primary-foreground:#ffffff;
+  --sidebar-accent:var(--surface-strong); --sidebar-accent-foreground:var(--ink);
+  --sidebar-border:var(--hairline);   --sidebar-ring:var(--ink);
 
-  /* Shape and depth (Airbnb: 8 buttons, 14 cards, pill search) */
-  --radius:0.5rem; --radius-card:14px; --radius-pill:999px;
-  --shadow-float:0 6px 16px rgba(0,0,0,.12);   /* only for things that float */
-
-  /* Space: 8pt grid, 4 for tight spots */
-  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-12:48px; --space-16:64px;
-
-  /* Type: one family, like Airbnb Cereal. Mono only for traces. */
-  --font-sans:"Jost","Futura","Avenir Next",system-ui,sans-serif;
-  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-  --text-xs:12px; --text-sm:14px; --text-base:16px; --text-lg:18px; --text-xl:22px; --text-2xl:28px; --text-display:64px;
+  /* Shape (Airbnb: 8 buttons, 14 cards, pill search) */
+  --radius:0.5rem;
 }
 
 .dark{
-  --canvas:#161616; --surface:#1e1e1d; --surface-strong:#2a2a28; --hairline:#3a3937;
-  --ink:#f2f2f0; --ink-2:#a8a8a3; --ink-3:#77776f;
-  --thread:#ef6a59; --thread-hover:#f5826f; --thread-tint:#3a1a16;
+  --canvas:#121212; --surface:#1c1c1c; --surface-strong:#262626; --hairline:#3a3a3a;
+  --ink:#f2f2f2; --ink-2:#a3a3a3; --ink-3:#737373;
+  --thread:#ff5a76; --thread-deep:#ff385c; --thread-deeper:#ff5a76; --thread-tint:#3a1520;
   --water:#1b2224; --wave:#4b5d61;
-  --error:#ff8a80; --success:#6cc59a;
-  --card:#1e1e1d; --popover:#1e1e1d; --primary-foreground:#161616;
-  --shadow-float:0 6px 16px rgba(0,0,0,.5);
+  --error:#ff6b4a; --success:#4cc35a;
+  --card:#1c1c1c; --popover:#1c1c1c; --primary-foreground:#121212;
 }
+
+/* Tailwind v4: turns the variables into classes such as bg-primary, text-ink-2, border-hairline */
+@theme inline{
+  --color-background:var(--background); --color-foreground:var(--foreground);
+  --color-card:var(--card); --color-card-foreground:var(--card-foreground);
+  --color-popover:var(--popover); --color-popover-foreground:var(--popover-foreground);
+  --color-primary:var(--primary); --color-primary-foreground:var(--primary-foreground);
+  --color-secondary:var(--secondary); --color-secondary-foreground:var(--secondary-foreground);
+  --color-muted:var(--muted); --color-muted-foreground:var(--muted-foreground);
+  --color-accent:var(--accent); --color-accent-foreground:var(--accent-foreground);
+  --color-destructive:var(--destructive);
+  --color-border:var(--border); --color-input:var(--input); --color-ring:var(--ring);
+  --color-chart-1:var(--chart-1); --color-chart-2:var(--chart-2); --color-chart-3:var(--chart-3); --color-chart-4:var(--chart-4); --color-chart-5:var(--chart-5);
+  --color-sidebar:var(--sidebar); --color-sidebar-foreground:var(--sidebar-foreground);
+  --color-sidebar-primary:var(--sidebar-primary); --color-sidebar-primary-foreground:var(--sidebar-primary-foreground);
+  --color-sidebar-accent:var(--sidebar-accent); --color-sidebar-accent-foreground:var(--sidebar-accent-foreground);
+  --color-sidebar-border:var(--sidebar-border); --color-sidebar-ring:var(--sidebar-ring);
+
+  /* brand */
+  --color-thread:var(--thread); --color-thread-deep:var(--thread-deep); --color-thread-tint:var(--thread-tint);
+  --color-ink:var(--ink); --color-ink-2:var(--ink-2); --color-ink-3:var(--ink-3);
+  --color-surface:var(--surface); --color-surface-strong:var(--surface-strong); --color-hairline:var(--hairline);
+  --color-water:var(--water); --color-wave:var(--wave);
+  --color-success:var(--success);
+
+  --radius-sm:calc(var(--radius) - 4px); --radius-md:calc(var(--radius) - 2px);
+  --radius-lg:var(--radius); --radius-xl:14px; --radius-pill:999px;
+  --shadow-float:0 6px 16px rgba(0,0,0,.12);
+
+  --font-sans:"Jost","Futura","Avenir Next",ui-sans-serif,system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+
+@custom-variant dark (&:is(.dark *));
