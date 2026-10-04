@@ -2,7 +2,7 @@
 <title>Alto · Notes</title><meta name="description" content="A browser harness that keeps you in the loop.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=EB+Garamond:ital,wght@1,400&display=swap"><style>
 /* Layout: nav top right, the otter scene centred in the space left over, footer on the baseline. Everything fits one screen. */
-:root{--ground:#efefed; --ink:#222222; --muted:#6a6a6a; --pill:#e2e2df; --thread:#ff385c;
+:root{--ground:#efefed; --ink:#222222; --muted:#6a6a6a; --pill:#e2e2df; --thread:#ff385c; --thread-tint:#fff0f3;
   --geo:"Jost","Futura","Avenir Next",system-ui,sans-serif; --ren:"EB Garamond",Garamond,Georgia,serif; color-scheme:light}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
@@ -14,6 +14,7 @@ nav a{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-rad
 nav a svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 nav a:hover{color:var(--ink);background:var(--pill)}
 nav a.on{color:var(--ink);background:var(--pill)}
+nav a.on svg path:last-child{fill:var(--thread-tint)}
 
 nav a.on svg{stroke:var(--ink)}
 main{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
